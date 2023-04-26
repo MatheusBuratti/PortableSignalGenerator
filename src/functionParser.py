@@ -4,7 +4,7 @@ import re
 class FunctionParser:
     def getFunc(string: str):
         result = re.search(
-            r"(?:([0-9]*)[* \t]?)(?:(?:(cos))|(?:(sen)))(?:[(](([0-9]*)[* ]*([t]?)[ +]*([0-9]*)|([0-9]*)[+ ]*([0-9]*)[ *]*([t]?))[)])", string)
+            r"(?:([0-9]*)[* \t]?)(?:(?:(cos))|(?:(sen|sin)))(?:[(](([0-9]*)[* ]*([t]?)[ +]*([0-9]*)|([0-9]*)[+ ]*([0-9]*)[ *]*([t]?))[)])", string)
 
         # ===== Pega amplitude =====
         if result.group(1) != '':
@@ -22,19 +22,15 @@ class FunctionParser:
 
         # ===== Pega frequência e fase =====
         if result.group(6) == 't':
-            freq = result.group(5)
+            ang_freq = result.group(5) if result.group(5) is not None else 1
             fase = result.group(7)
-            if freq is None:
-                freq = 1
         elif result.group(10) == 't':
-            freq = result.group(9)
+            ang_freq = result.group(9) if result.group(9) is not None else 1
             fase = result.group(8)
-            if freq is None:
-                freq = 1
         else:
-            freq = None
+            ang_freq = None
 
-        if fase is None:
+        if fase == '':
             fase = 0
 
-        return (amp, func, freq, fase)
+        return (float(amp), func, float(ang_freq), float(fase))

@@ -17,7 +17,7 @@ class Main:
         # ===== Calculando a quantidade de pontos =====
         # Se frequencia < 100kHz usa um valor fixo máximo
         self.qtd_pontos = int(10*self.freq) \
-            if self.freq < 100000  \
+            if self.freq > 100000  \
             else 1000000
 
         self.evaluate()

@@ -1,9 +1,7 @@
 import math
-import re
 import numpy as np
 import matplotlib.pyplot as plt
 from functionParser import *
-from functools import reduce
 
 
 class Main:

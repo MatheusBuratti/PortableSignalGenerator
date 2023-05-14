@@ -2,35 +2,57 @@ import re
 
 
 class FunctionParser:
+    # separa uma entrada (somas) em tuplas
+    def sep(string: str):
+        return string.split('+')
+
+    # retorna a função em uma tupla a partir de uma string
     def getFunc(string: str):
-        result = re.search(
-            r"(?:([0-9]*)[* \t]?)(?:(?:(cos))|(?:(sen|sin)))(?:[(](([0-9]*)[* ]*([t]?)[ +]*([0-9]*)|([0-9]*)[+ ]*([0-9]*)[ *]*([t]?))[)])", string)
+        all_results = re.findall(
+            r"([-+]?[ ]*(?:\d*[\.]*\d+)?)[* \t]?((?:cos)|(?:sen|sin))[(](?:([-+]?[ ]*(?:\d*[\.]*\d+))([tx])[ ]*([-+]?[' ']*(?:\d*[\.]*\d+))?|([ ]*[-+]?[ ]*(?:\d*[\.]*\d+))[ ]*([-+]?[ ]*(?:\d*[\.]*\d+))([tx]))[)]", string)
+        functions = []
+        for result in all_results:
+            # ===== Pega amplitude =====
+            if result[0] != '':
+                amp = result[0]
+            else:
+                amp = '1'
 
-        # ===== Pega amplitude =====
-        if result.group(1) != '':
-            amp = result.group(1)
-        else:
-            amp = 1
+            # ===== Pega função =====
+            if result[1] == "cos":
+                func = "cos"
+            elif result[1] == "sen" or result[1] == "sin":
+                func = "sen"
+            else:
+                func = None
 
-        # ===== Pega função =====
-        if result.group(2) is not None:
-            func = "cos"
-        elif result.group(3) is not None:
-            func = "sen"
-        else:
-            func = None
+            # ===== Pega frequência e fase =====
+            fase = ''
+            if result[3] == 't':
+                ang_freq = result[2] if result[2] != '' else '1'
+                fase = result[4]
+            elif result[7] == 't':
+                ang_freq = result[6] if result[6] != '' else '1'
+                fase = result[5]
+            else:
+                ang_freq = None
+            if fase == '':
+                fase = '0'
 
-        # ===== Pega frequência e fase =====
-        if result.group(6) == 't':
-            ang_freq = result.group(5) if result.group(5) is not None else 1
-            fase = result.group(7)
-        elif result.group(10) == 't':
-            ang_freq = result.group(9) if result.group(9) is not None else 1
-            fase = result.group(8)
-        else:
-            ang_freq = None
+            # ===== Removendo whitespaces dos valores numéricos =====
+            amp = amp.replace(' ', '')
+            ang_freq = ang_freq.replace(' ', '')
+            fase = fase.replace(' ', '')
 
-        if fase == '':
-            fase = 0
+            # ===== Resolve casos onde aparece apenas o sinal e nenhum número =====
+            # Ex: - cos(t) --> amp = '-'
+            if amp == '+' or amp == '-':
+                amp += '1'
+            if ang_freq == '+' or ang_freq == '-':
+                ang_freq += '1'
+            if fase == '+' or fase == '-':
+                fase += '1'
 
-        return (float(amp), func, float(ang_freq), float(fase))
+            functions.append((float(amp),
+                             func, float(ang_freq), float(fase)))
+        return functions

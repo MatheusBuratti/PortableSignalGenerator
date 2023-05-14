@@ -1,0 +1,1 @@
+cos(2t) + 2cos(3t) + 3cos(4t) + 4cos(8t)

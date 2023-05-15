@@ -9,26 +9,33 @@ class Main:
         # ===== Pegando a função a partir da entrada =====
         self.functions = FunctionParser.getFunc(input)
         print(self.functions)
-
         self.max_ang_freq = max(self.functions, key=lambda item: item[3])[2]
-        self.freq = self.max_ang_freq/2*math.pi
+        self.freq = self.max_ang_freq/(2*math.pi)
 
         # TODO:
         # Resolver o calculo do período da soma
-
-        self.periodo = 48*math.pi/np.lcm.reduce(
-            [int(x[2]) for x in self.functions])
-        print(self.periodo)
+        # self.periodo = 2*math.pi/np.gcd.reduce(
+        #      [int(x[2]) for x in self.functions])
+        self.periodo = 1/self.freq
 
         # ===== Calculando a quantidade de pontos =====
         # Se frequencia < 100kHz usa um valor fixo máximo
-        self.qtd_pontos = int(100*self.freq) \
-            if self.freq > 10000  \
-            else 1000000
+        if self.freq < 10000:
+            if self.freq < 100:
+                self.qtd_pontos = int(100*self.freq)
+            else:
+                self.qtd_pontos = int(10*self.freq)
+        else:
+            self.qtd_pontos = 100000
 
         self.evaluate()
 
-        plt.plot(self.t, self.F)
+        print(self.freq)
+        print(self.qtd_pontos)
+        print([round(elem)
+              for elem in 4095*(self.F+max(self.F))/(2*max(self.F))])
+
+        plt.plot(self.t*self.max_ang_freq, self.F)
         plt.show()
 
     # Calcula o valor das funções para todos os pontos dentro de 1 período da função de menor freq. ang.

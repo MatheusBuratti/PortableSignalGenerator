@@ -12,11 +12,9 @@ class Main:
         self.max_ang_freq = max(self.functions, key=lambda item: item[3])[2]
         self.freq = self.max_ang_freq/(2*math.pi)
 
-        # TODO:
-        # Resolver o calculo do período da soma
-        # self.periodo = 2*math.pi/np.gcd.reduce(
-        #      [int(x[2]) for x in self.functions])
-        self.periodo = 1/self.freq
+        self.periodo = 4*math.pi/np.gcd.reduce(
+            [int(x[2]) for x in self.functions])
+        print(self.periodo)
 
         # ===== Calculando a quantidade de pontos =====
         # Se frequencia < 100kHz usa um valor fixo máximo

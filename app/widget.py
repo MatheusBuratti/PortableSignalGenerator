@@ -3,7 +3,8 @@
 #     pyside6-uic form.ui -o ui_form.py, or
 #     pyside2-uic form.ui -o ui_form.py
 
-import sys, math
+import sys
+import math
 from main import Main
 from PySide6.QtWidgets import QApplication, QWidget
 from ui_form import Ui_Widget
@@ -24,8 +25,9 @@ class Widget(QWidget):
         offSet = self.printOffSetData()
         dutyCycle = self.printDutyCycleData()
         print()
-        print("String de entrada: "+ str(amplitude)+"sen(" + str(frequency/2*math.pi)+ "t)")
-        Main(str(amplitude)+"sen(" + str(frequency/2*math.pi)+ "t)")
+        print("String de entrada: " + str(amplitude) +
+              "sen(" + str(frequency/2*math.pi) + "t)")
+        Main(str(amplitude)+"sen(" + str(frequency/2*math.pi) + "t)")
 
     def printFrequencyData(self):
         text = self.ui.frequencyInput.text()

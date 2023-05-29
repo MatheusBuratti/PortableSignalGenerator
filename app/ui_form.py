@@ -15,15 +15,15 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QButtonGroup, QFrame, QHBoxLayout,
-    QLabel, QLineEdit, QPushButton, QRadioButton,
-    QSizePolicy, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QButtonGroup, QFrame, QGraphicsView,
+    QHBoxLayout, QLabel, QLineEdit, QPushButton,
+    QRadioButton, QSizePolicy, QVBoxLayout, QWidget)
 
 class Ui_Widget(object):
     def setupUi(self, Widget):
         if not Widget.objectName():
             Widget.setObjectName(u"Widget")
-        Widget.resize(800, 600)
+        Widget.resize(1000, 800)
         icon = QIcon()
         icon.addFile(u"signal-icon.jpg", QSize(), QIcon.Normal, QIcon.Off)
         Widget.setWindowIcon(icon)
@@ -33,7 +33,7 @@ class Ui_Widget(object):
 "background-color: rgb(255, 255, 255);")
         self.verticalLayoutWidget = QWidget(Widget)
         self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
-        self.verticalLayoutWidget.setGeometry(QRect(30, 90, 731, 471))
+        self.verticalLayoutWidget.setGeometry(QRect(20, 100, 901, 391))
         self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -243,11 +243,14 @@ class Ui_Widget(object):
 
         self.label_5 = QLabel(Widget)
         self.label_5.setObjectName(u"label_5")
-        self.label_5.setGeometry(QRect(30, 10, 729, 67))
+        self.label_5.setGeometry(QRect(20, 20, 901, 67))
         self.label_5.setMaximumSize(QSize(16777215, 16777215))
         self.label_5.setStyleSheet(u"background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 181, 177, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "border-radius: 20px;\n"
 "height: 50px;")
+        self.graphicsView = QGraphicsView(Widget)
+        self.graphicsView.setObjectName(u"graphicsView")
+        self.graphicsView.setGeometry(QRect(340, 500, 341, 271))
 
         self.retranslateUi(Widget)
 

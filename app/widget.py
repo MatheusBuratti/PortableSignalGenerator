@@ -1,12 +1,11 @@
-# This Python file uses the following encoding: utf-8
-import sys
-
-from PySide6.QtWidgets import QApplication, QWidget
-
 # Important:
 # You need to run the following command to generate the ui_form.py file
 #     pyside6-uic form.ui -o ui_form.py, or
 #     pyside2-uic form.ui -o ui_form.py
+
+import sys, math
+from main import Main
+from PySide6.QtWidgets import QApplication, QWidget
 from ui_form import Ui_Widget
 
 
@@ -20,11 +19,13 @@ class Widget(QWidget):
     def outputData(self):
         print()
         self.printWaveform()
-        self.printFrequencyData()
-        self.printAmplitudeData()
-        self.printOffSetData()
-        self.printDutyCycleData()
+        frequency = self.printFrequencyData()
+        amplitude = self.printAmplitudeData()
+        offSet = self.printOffSetData()
+        dutyCycle = self.printDutyCycleData()
         print()
+        print("String de entrada: "+ str(amplitude)+"sen(" + str(frequency/2*math.pi)+ "t)")
+        Main(str(amplitude)+"sen(" + str(frequency/2*math.pi)+ "t)")
 
     def printFrequencyData(self):
         text = self.ui.frequencyInput.text()
@@ -41,6 +42,7 @@ class Widget(QWidget):
         else:
             result = number
             print("Frequency: " + str(number) + "Hz")
+        return result
 
     def printAmplitudeData(self):
         text = self.ui.amplitudeInput.text()
@@ -53,6 +55,7 @@ class Widget(QWidget):
         else:
             result = number
             print("Amplitude: " + str(number) + "V")
+        return result
 
     def printOffSetData(self):
         text = self.ui.offSetInput.text()
@@ -65,11 +68,13 @@ class Widget(QWidget):
         else:
             result = number
             print("Offset: " + str(number) + "V")
+        return result
 
     def printDutyCycleData(self):
         text = self.ui.dutyInput.text()
         number = float(text)
         print("Duty Cycle: " + str(number) + "%")
+        return number
 
     def printWaveform(self):
         if self.ui.radioPulse.isChecked():

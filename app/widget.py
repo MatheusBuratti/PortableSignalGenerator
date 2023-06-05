@@ -5,7 +5,7 @@
 
 import sys
 import math
-from main import Main
+from functionGenerator import Waveform, functionGenerator as fg
 from PySide6.QtWidgets import QApplication, QWidget
 from ui_form import Ui_Widget
 
@@ -24,10 +24,7 @@ class Widget(QWidget):
         amplitude = self.printAmplitudeData()
         offSet = self.printOffSetData()
         dutyCycle = self.printDutyCycleData()
-        print()
-        print("String de entrada: " + str(amplitude) +
-              "sen(" + str(frequency/2*math.pi) + "t)")
-        Main(str(amplitude)+"sen(" + str(frequency/2*math.pi) + "t)")
+        fg.generateSineWave(frequency, 0, amplitude)
 
     def printFrequencyData(self):
         text = self.ui.frequencyInput.text()
@@ -80,16 +77,16 @@ class Widget(QWidget):
 
     def printWaveform(self):
         if self.ui.radioPulse.isChecked():
-            waveform = self.ui.radioPulse.text()
+            waveform = Waveform.PULSE
         elif self.ui.radioSaw.isChecked():
-            waveform = self.ui.radioSaw.text()
+            waveform = Waveform.SAW
         elif self.ui.radioSine.isChecked():
-            waveform = self.ui.radioSine.text()
+            waveform = Waveform.SINE
         elif self.ui.radioSquare.isChecked():
-            waveform = self.ui.radioSquare.text()
+            waveform = Waveform.SQUARE
         elif self.ui.radioTriangle.isChecked():
-            waveform = self.ui.radioTriangle.text()
-        print("Waveform: " + waveform)
+            waveform = Waveform.TRIANGLE
+        print("Waveform: " + str(waveform))
 
 
 if __name__ == "__main__":

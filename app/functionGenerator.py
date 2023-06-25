@@ -1,19 +1,37 @@
 import math
 import numpy as np
-import matplotlib.pyplot as plt
 from enum import Enum
 import re
 
 
 class Waveform(Enum):
     SINESUM = 0
-    SAW = 1
+    SAWTOOTH = 1
     SINE = 2
     SQUARE = 3
     TRIANGLE = 4
 
     def __str__(self) -> str:
         return self.name
+
+
+class Function:
+    def __init__(self, waveform: Waveform, freq: int, phase: int, amplitude: int, dutyCycle: float, pontos: list, qtd_pontos: int) -> None:
+        self.waveform = waveform
+        self.freq = freq
+        self.phase = phase
+        self.amplitude = amplitude
+        self.dutyCycle = dutyCycle
+        self.pontos = pontos
+        self.qtd_pontos = qtd_pontos
+        self.__calc__()
+
+    def __calc__(self):
+        # Calcula o ARR e o Prescaler baseado na frequencia desejada, no MCLK e na quantidade de pontos
+        MCLK = 168000000
+        freq_timer = self.freq * self.qtd_pontos
+        self.prescaler = 1
+        self.arr = int(MCLK/(freq_timer*self.prescaler*2))
 
 
 class cosSineSumParser:
@@ -84,14 +102,7 @@ class functionGenerator:
         periodo = 4*math.pi/np.gcd.reduce(
             [int(x[2]) for x in functions])
         # ===== Calculando a quantidade de pontos =====
-        # Se frequencia < 100kHz usa um valor fixo máximo
-        if freq < 10000:
-            if freq < 100:
-                qtd_pontos = int(100*freq)
-            else:
-                qtd_pontos = int(10*freq)
-        else:
-            qtd_pontos = 100000
+        qtd_pontos = 32*freq if freq < 10000 else 32000
         t = np.linspace(0, periodo, qtd_pontos)
         F = list()
         for function in functions:
@@ -101,38 +112,42 @@ class functionGenerator:
         F = np.sum(F, axis=0)
         pontos = [round(elem)
                   for elem in 4095*(F+max(F))/(2*max(F))]
-        plt.plot(t*max_ang_freq, F)
-        plt.show()
+        return Function(Waveform.SINESUM, freq, 0, 1, 1, pontos, qtd_pontos)
 
     def generateSawWave(freq: float, dutyCycle: float):
-        pass
+        qtd_pontos = 32
+        pontos = np.zeros(qtd_pontos, dtype=int)
+        slice = np.r_[0:int(dutyCycle*qtd_pontos)]
+        pontos[slice] = np.poly1d([4095/(dutyCycle*qtd_pontos), 0])(slice)
+
+        return Function(Waveform.SAWTOOTH, freq, 0, 1, dutyCycle, pontos, qtd_pontos)
 
     def generateSquareWave(freq: float, dutyCycle: float):
         # Duty cycle na forma 0.200 - 0.800
-        qtd_pontos = 1000
-        pontos = np.zeros(qtd_pontos)
-        slice = np.r_[0:dutyCycle*qtd_pontos]
+        qtd_pontos = 32
+        pontos = np.zeros(qtd_pontos, dtype=int)
+        slice = np.r_[0:int(dutyCycle*qtd_pontos)]
         pontos[slice] = 4095
-        plt.plot(pontos)
-        plt.show()
 
-    def generateTriangleWave(freq: float, dutyCycle: float):
-        pass
+        return Function(Waveform.SQUARE, freq, 0, 1, dutyCycle, pontos, qtd_pontos)
+
+    def generateTriangleWave(freq: float):
+        qtd_pontos = 32
+        pontos = np.zeros(qtd_pontos, dtype=int)
+        first_slice = np.r_[0:int(0.5*qtd_pontos)]
+        second_slice = np.r_[int(0.5*qtd_pontos):qtd_pontos]
+        pontos[first_slice] = np.poly1d([4095/(qtd_pontos), 0])(first_slice)
+        pontos[second_slice] = np.poly1d(
+            [-4095/(qtd_pontos), 4095])(second_slice)
+
+        return Function(Waveform.TRIANGLE, freq, 0, 1, 1, pontos, qtd_pontos)
 
     def generateSineWave(freq: float, phase: float, amplitude: float):
         periodo = 1/freq
         # ===== Calculando a quantidade de pontos =====
-        # Se frequencia < 100kHz usa um valor fixo máximo
-        if freq < 10000:
-            if freq < 100:
-                qtd_pontos = int(100*freq)
-            else:
-                qtd_pontos = int(10*freq)
-        else:
-            qtd_pontos = 100000
+        qtd_pontos = 128 if freq < 100000 else 64
         t = np.linspace(0, periodo, qtd_pontos)
         F = np.sin(2*math.pi*freq*t + phase)
         pontos = [round(elem)
                   for elem in 4095*(F+1)/2]
-        plt.plot(t*2*math.pi*freq, F)
-        plt.show()
+        return Function(Waveform.SINE, freq, phase, amplitude, 1, pontos, qtd_pontos)

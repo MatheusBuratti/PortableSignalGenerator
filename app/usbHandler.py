@@ -1,5 +1,6 @@
 import serial
 import time
+from functionGenerator import *
 
 # O que mandar?
 # 1. Vetor de pontos
@@ -16,20 +17,16 @@ class USBHandler:
                 self.serial = serial.Serial("/dev/ttyACM0", 115200)
                 print(self.serial)
             except:
-                Exception("Não foi possível conectar ao dispositivo USB")
-                time.sleep(2)
+                print("USB not connected")
+                time.sleep(5)
 
-    def send(self, data):
-        self.serial.write(data)
-
-    def recieve(self):
-        print(self.serial.read(20))
-
-
-if __name__ == "__main__":
-    USB = USBHandler()
-    i = 0
-    while (True):
-        USB.send(f'Hello World!{i}'.encode())
-        i += 1
-        USB.recieve()
+    def send(self, data: Function):
+        message = b'!Start!'
+        message += int.to_bytes(data.arr, 4, 'little')
+        message += int.to_bytes(data.prescaler, 2, 'little')
+        message += int.to_bytes(data.qtd_pontos, 2, 'little')
+        self.serial.write(message)
+        message = b''
+        for ponto in data.pontos:
+            message += int.to_bytes(int(ponto), 2, 'little')
+        self.serial.write(message)

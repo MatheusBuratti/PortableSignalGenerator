@@ -15,10 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFormLayout, QFrame, QGridLayout,
-    QHBoxLayout, QLabel, QLineEdit, QPushButton,
-    QRadioButton, QSizePolicy, QTabWidget, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QButtonGroup, QFormLayout, QFrame,
+    QGridLayout, QHBoxLayout, QLabel, QLineEdit,
+    QPushButton, QRadioButton, QSizePolicy, QTabWidget,
+    QVBoxLayout, QWidget)
 
 class Ui_Widget(object):
     def setupUi(self, Widget):
@@ -78,17 +78,22 @@ class Ui_Widget(object):
         self.horizontalLayout_7.addWidget(self.frequencyInput)
 
         self.radioHz = QRadioButton(self.verticalLayoutWidget_2)
+        self.buttonGroup_4 = QButtonGroup(Widget)
+        self.buttonGroup_4.setObjectName(u"buttonGroup_4")
+        self.buttonGroup_4.addButton(self.radioHz)
         self.radioHz.setObjectName(u"radioHz")
         self.radioHz.setChecked(True)
 
         self.horizontalLayout_7.addWidget(self.radioHz)
 
         self.radioKHz = QRadioButton(self.verticalLayoutWidget_2)
+        self.buttonGroup_4.addButton(self.radioKHz)
         self.radioKHz.setObjectName(u"radioKHz")
 
         self.horizontalLayout_7.addWidget(self.radioKHz)
 
         self.radioMHz = QRadioButton(self.verticalLayoutWidget_2)
+        self.buttonGroup_4.addButton(self.radioMHz)
         self.radioMHz.setObjectName(u"radioMHz")
         self.radioMHz.setStyleSheet(u"background-color: rgb(255, 255, 255);")
 
@@ -117,12 +122,16 @@ class Ui_Widget(object):
         self.horizontalLayout_8.addWidget(self.amplitudeInput)
 
         self.radiomV = QRadioButton(self.verticalLayoutWidget_2)
+        self.buttonGroup = QButtonGroup(Widget)
+        self.buttonGroup.setObjectName(u"buttonGroup")
+        self.buttonGroup.addButton(self.radiomV)
         self.radiomV.setObjectName(u"radiomV")
         self.radiomV.setChecked(True)
 
         self.horizontalLayout_8.addWidget(self.radiomV)
 
         self.radioV = QRadioButton(self.verticalLayoutWidget_2)
+        self.buttonGroup.addButton(self.radioV)
         self.radioV.setObjectName(u"radioV")
 
         self.horizontalLayout_8.addWidget(self.radioV)
@@ -150,12 +159,16 @@ class Ui_Widget(object):
         self.horizontalLayout_9.addWidget(self.offSetInput)
 
         self.offSetRadiomV = QRadioButton(self.verticalLayoutWidget_2)
+        self.buttonGroup_5 = QButtonGroup(Widget)
+        self.buttonGroup_5.setObjectName(u"buttonGroup_5")
+        self.buttonGroup_5.addButton(self.offSetRadiomV)
         self.offSetRadiomV.setObjectName(u"offSetRadiomV")
         self.offSetRadiomV.setChecked(True)
 
         self.horizontalLayout_9.addWidget(self.offSetRadiomV)
 
         self.offSetRadioV = QRadioButton(self.verticalLayoutWidget_2)
+        self.buttonGroup_5.addButton(self.offSetRadioV)
         self.offSetRadioV.setObjectName(u"offSetRadioV")
 
         self.horizontalLayout_9.addWidget(self.offSetRadioV)
@@ -204,14 +217,14 @@ class Ui_Widget(object):
         self.Square.setObjectName(u"Square")
         self.label_5 = QLabel(self.Square)
         self.label_5.setObjectName(u"label_5")
-        self.label_5.setGeometry(QRect(30, 0, 729, 67))
+        self.label_5.setGeometry(QRect(0, 0, 729, 67))
         self.label_5.setMaximumSize(QSize(16777215, 16777215))
         self.label_5.setStyleSheet(u"background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 181, 177, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "border-radius: 20px;\n"
 "height: 50px;")
         self.verticalLayoutWidget = QWidget(self.Square)
         self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
-        self.verticalLayoutWidget.setGeometry(QRect(30, 80, 731, 471))
+        self.verticalLayoutWidget.setGeometry(QRect(0, 80, 731, 471))
         self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -242,17 +255,22 @@ class Ui_Widget(object):
         self.horizontalLayout_2.addWidget(self.frequencyInput_sq)
 
         self.radioHz_sq = QRadioButton(self.verticalLayoutWidget)
+        self.buttonGroup_6 = QButtonGroup(Widget)
+        self.buttonGroup_6.setObjectName(u"buttonGroup_6")
+        self.buttonGroup_6.addButton(self.radioHz_sq)
         self.radioHz_sq.setObjectName(u"radioHz_sq")
         self.radioHz_sq.setChecked(True)
 
         self.horizontalLayout_2.addWidget(self.radioHz_sq)
 
         self.radioKHz_sq = QRadioButton(self.verticalLayoutWidget)
+        self.buttonGroup_6.addButton(self.radioKHz_sq)
         self.radioKHz_sq.setObjectName(u"radioKHz_sq")
 
         self.horizontalLayout_2.addWidget(self.radioKHz_sq)
 
         self.radioMHz_sq = QRadioButton(self.verticalLayoutWidget)
+        self.buttonGroup_6.addButton(self.radioMHz_sq)
         self.radioMHz_sq.setObjectName(u"radioMHz_sq")
         self.radioMHz_sq.setStyleSheet(u"background-color: rgb(255, 255, 255);")
 
@@ -281,12 +299,16 @@ class Ui_Widget(object):
         self.horizontalLayout.addWidget(self.amplitudeInput_sq)
 
         self.radiomV_sq = QRadioButton(self.verticalLayoutWidget)
+        self.buttonGroup_8 = QButtonGroup(Widget)
+        self.buttonGroup_8.setObjectName(u"buttonGroup_8")
+        self.buttonGroup_8.addButton(self.radiomV_sq)
         self.radiomV_sq.setObjectName(u"radiomV_sq")
         self.radiomV_sq.setChecked(True)
 
         self.horizontalLayout.addWidget(self.radiomV_sq)
 
         self.radioV_sq = QRadioButton(self.verticalLayoutWidget)
+        self.buttonGroup_8.addButton(self.radioV_sq)
         self.radioV_sq.setObjectName(u"radioV_sq")
 
         self.horizontalLayout.addWidget(self.radioV_sq)
@@ -314,12 +336,16 @@ class Ui_Widget(object):
         self.horizontalLayout_4.addWidget(self.offSetInput_sq)
 
         self.offSetRadiomV_sq = QRadioButton(self.verticalLayoutWidget)
+        self.buttonGroup_7 = QButtonGroup(Widget)
+        self.buttonGroup_7.setObjectName(u"buttonGroup_7")
+        self.buttonGroup_7.addButton(self.offSetRadiomV_sq)
         self.offSetRadiomV_sq.setObjectName(u"offSetRadiomV_sq")
         self.offSetRadiomV_sq.setChecked(True)
 
         self.horizontalLayout_4.addWidget(self.offSetRadiomV_sq)
 
         self.offSetRadioV_sq = QRadioButton(self.verticalLayoutWidget)
+        self.buttonGroup_7.addButton(self.offSetRadioV_sq)
         self.offSetRadioV_sq.setObjectName(u"offSetRadioV_sq")
 
         self.horizontalLayout_4.addWidget(self.offSetRadioV_sq)
@@ -423,17 +449,22 @@ class Ui_Widget(object):
         self.horizontalLayout_42.addWidget(self.frequencyInput_tr)
 
         self.radioHz_tr = QRadioButton(self.verticalLayoutWidget_9)
+        self.buttonGroup_9 = QButtonGroup(Widget)
+        self.buttonGroup_9.setObjectName(u"buttonGroup_9")
+        self.buttonGroup_9.addButton(self.radioHz_tr)
         self.radioHz_tr.setObjectName(u"radioHz_tr")
         self.radioHz_tr.setChecked(True)
 
         self.horizontalLayout_42.addWidget(self.radioHz_tr)
 
         self.radioKHz_tr = QRadioButton(self.verticalLayoutWidget_9)
+        self.buttonGroup_9.addButton(self.radioKHz_tr)
         self.radioKHz_tr.setObjectName(u"radioKHz_tr")
 
         self.horizontalLayout_42.addWidget(self.radioKHz_tr)
 
         self.radioMHz_tr = QRadioButton(self.verticalLayoutWidget_9)
+        self.buttonGroup_9.addButton(self.radioMHz_tr)
         self.radioMHz_tr.setObjectName(u"radioMHz_tr")
         self.radioMHz_tr.setStyleSheet(u"background-color: rgb(255, 255, 255);")
 
@@ -462,12 +493,16 @@ class Ui_Widget(object):
         self.horizontalLayout_43.addWidget(self.amplitudeInput_tr)
 
         self.radiomV_tr = QRadioButton(self.verticalLayoutWidget_9)
+        self.buttonGroup_10 = QButtonGroup(Widget)
+        self.buttonGroup_10.setObjectName(u"buttonGroup_10")
+        self.buttonGroup_10.addButton(self.radiomV_tr)
         self.radiomV_tr.setObjectName(u"radiomV_tr")
         self.radiomV_tr.setChecked(True)
 
         self.horizontalLayout_43.addWidget(self.radiomV_tr)
 
         self.radioV_tr = QRadioButton(self.verticalLayoutWidget_9)
+        self.buttonGroup_10.addButton(self.radioV_tr)
         self.radioV_tr.setObjectName(u"radioV_tr")
 
         self.horizontalLayout_43.addWidget(self.radioV_tr)
@@ -495,12 +530,16 @@ class Ui_Widget(object):
         self.horizontalLayout_44.addWidget(self.offSetInput_tr)
 
         self.offSetRadiomV_tr = QRadioButton(self.verticalLayoutWidget_9)
+        self.buttonGroup_11 = QButtonGroup(Widget)
+        self.buttonGroup_11.setObjectName(u"buttonGroup_11")
+        self.buttonGroup_11.addButton(self.offSetRadiomV_tr)
         self.offSetRadiomV_tr.setObjectName(u"offSetRadiomV_tr")
         self.offSetRadiomV_tr.setChecked(True)
 
         self.horizontalLayout_44.addWidget(self.offSetRadiomV_tr)
 
         self.offSetRadioV_tr = QRadioButton(self.verticalLayoutWidget_9)
+        self.buttonGroup_11.addButton(self.offSetRadioV_tr)
         self.offSetRadioV_tr.setObjectName(u"offSetRadioV_tr")
 
         self.horizontalLayout_44.addWidget(self.offSetRadioV_tr)
@@ -549,14 +588,14 @@ class Ui_Widget(object):
         self.Sawtooth.setObjectName(u"Sawtooth")
         self.label_21 = QLabel(self.Sawtooth)
         self.label_21.setObjectName(u"label_21")
-        self.label_21.setGeometry(QRect(50, 10, 729, 67))
+        self.label_21.setGeometry(QRect(0, 0, 729, 67))
         self.label_21.setMaximumSize(QSize(16777215, 16777215))
         self.label_21.setStyleSheet(u"background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 181, 177, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "border-radius: 20px;\n"
 "height: 50px;")
         self.verticalLayoutWidget_5 = QWidget(self.Sawtooth)
         self.verticalLayoutWidget_5.setObjectName(u"verticalLayoutWidget_5")
-        self.verticalLayoutWidget_5.setGeometry(QRect(50, 90, 731, 471))
+        self.verticalLayoutWidget_5.setGeometry(QRect(0, 80, 731, 471))
         self.verticalLayout_5 = QVBoxLayout(self.verticalLayoutWidget_5)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
@@ -626,12 +665,16 @@ class Ui_Widget(object):
         self.horizontalLayout_18.addWidget(self.amplitudeInput_st)
 
         self.radiomV_st = QRadioButton(self.verticalLayoutWidget_5)
+        self.buttonGroup_2 = QButtonGroup(Widget)
+        self.buttonGroup_2.setObjectName(u"buttonGroup_2")
+        self.buttonGroup_2.addButton(self.radiomV_st)
         self.radiomV_st.setObjectName(u"radiomV_st")
         self.radiomV_st.setChecked(True)
 
         self.horizontalLayout_18.addWidget(self.radiomV_st)
 
         self.radioV_st = QRadioButton(self.verticalLayoutWidget_5)
+        self.buttonGroup_2.addButton(self.radioV_st)
         self.radioV_st.setObjectName(u"radioV_st")
 
         self.horizontalLayout_18.addWidget(self.radioV_st)
@@ -659,12 +702,16 @@ class Ui_Widget(object):
         self.horizontalLayout_19.addWidget(self.offSetInput_st)
 
         self.offSetRadiomV_st = QRadioButton(self.verticalLayoutWidget_5)
+        self.buttonGroup_3 = QButtonGroup(Widget)
+        self.buttonGroup_3.setObjectName(u"buttonGroup_3")
+        self.buttonGroup_3.addButton(self.offSetRadiomV_st)
         self.offSetRadiomV_st.setObjectName(u"offSetRadiomV_st")
         self.offSetRadiomV_st.setChecked(True)
 
         self.horizontalLayout_19.addWidget(self.offSetRadiomV_st)
 
         self.offSetRadioV_st = QRadioButton(self.verticalLayoutWidget_5)
+        self.buttonGroup_3.addButton(self.offSetRadioV_st)
         self.offSetRadioV_st.setObjectName(u"offSetRadioV_st")
 
         self.horizontalLayout_19.addWidget(self.offSetRadioV_st)
@@ -715,7 +762,7 @@ class Ui_Widget(object):
 
         self.retranslateUi(Widget)
 
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(Widget)

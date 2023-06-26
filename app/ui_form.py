@@ -29,6 +29,7 @@ class Ui_Widget(object):
         icon.addFile(u"signal-icon.jpg", QSize(), QIcon.Normal, QIcon.Off)
         Widget.setWindowIcon(icon)
         Widget.setStyleSheet(u"font: 700 12pt \"Alef\";\n"
+"background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 181, 177, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "border-color: rgb(0, 0, 0);\n"
 "color: rgb(0, 0, 0);\n"
 "background-color: rgb(255, 255, 255);")
@@ -36,195 +37,19 @@ class Ui_Widget(object):
         self.gridLayout.setObjectName(u"gridLayout")
         self.tabWidget = QTabWidget(Widget)
         self.tabWidget.setObjectName(u"tabWidget")
-        self.Seno = QWidget()
-        self.Seno.setObjectName(u"Seno")
-        self.label_6 = QLabel(self.Seno)
-        self.label_6.setObjectName(u"label_6")
-        self.label_6.setGeometry(QRect(0, 0, 729, 67))
-        self.label_6.setMaximumSize(QSize(16777215, 16777215))
-        self.label_6.setStyleSheet(u"background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 181, 177, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"border-radius: 20px;\n"
-"height: 50px;")
-        self.verticalLayoutWidget_2 = QWidget(self.Seno)
-        self.verticalLayoutWidget_2.setObjectName(u"verticalLayoutWidget_2")
-        self.verticalLayoutWidget_2.setGeometry(QRect(0, 80, 731, 471))
-        self.verticalLayout_2 = QVBoxLayout(self.verticalLayoutWidget_2)
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.line_7 = QFrame(self.verticalLayoutWidget_2)
-        self.line_7.setObjectName(u"line_7")
-        self.line_7.setFrameShape(QFrame.HLine)
-        self.line_7.setFrameShadow(QFrame.Sunken)
-
-        self.verticalLayout_2.addWidget(self.line_7)
-
-        self.line_8 = QFrame(self.verticalLayoutWidget_2)
-        self.line_8.setObjectName(u"line_8")
-        self.line_8.setFrameShape(QFrame.HLine)
-        self.line_8.setFrameShadow(QFrame.Sunken)
-
-        self.verticalLayout_2.addWidget(self.line_8)
-
-        self.horizontalLayout_7 = QHBoxLayout()
-        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.label_7 = QLabel(self.verticalLayoutWidget_2)
-        self.label_7.setObjectName(u"label_7")
-
-        self.horizontalLayout_7.addWidget(self.label_7)
-
-        self.frequencyInput = QLineEdit(self.verticalLayoutWidget_2)
-        self.frequencyInput.setObjectName(u"frequencyInput")
-
-        self.horizontalLayout_7.addWidget(self.frequencyInput)
-
-        self.radioHz = QRadioButton(self.verticalLayoutWidget_2)
-        self.buttonGroup_4 = QButtonGroup(Widget)
-        self.buttonGroup_4.setObjectName(u"buttonGroup_4")
-        self.buttonGroup_4.addButton(self.radioHz)
-        self.radioHz.setObjectName(u"radioHz")
-        self.radioHz.setChecked(True)
-
-        self.horizontalLayout_7.addWidget(self.radioHz)
-
-        self.radioKHz = QRadioButton(self.verticalLayoutWidget_2)
-        self.buttonGroup_4.addButton(self.radioKHz)
-        self.radioKHz.setObjectName(u"radioKHz")
-
-        self.horizontalLayout_7.addWidget(self.radioKHz)
-
-        self.radioMHz = QRadioButton(self.verticalLayoutWidget_2)
-        self.buttonGroup_4.addButton(self.radioMHz)
-        self.radioMHz.setObjectName(u"radioMHz")
-        self.radioMHz.setStyleSheet(u"background-color: rgb(255, 255, 255);")
-
-        self.horizontalLayout_7.addWidget(self.radioMHz)
-
-
-        self.verticalLayout_2.addLayout(self.horizontalLayout_7)
-
-        self.line_9 = QFrame(self.verticalLayoutWidget_2)
-        self.line_9.setObjectName(u"line_9")
-        self.line_9.setFrameShape(QFrame.HLine)
-        self.line_9.setFrameShadow(QFrame.Sunken)
-
-        self.verticalLayout_2.addWidget(self.line_9)
-
-        self.horizontalLayout_8 = QHBoxLayout()
-        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
-        self.label_8 = QLabel(self.verticalLayoutWidget_2)
-        self.label_8.setObjectName(u"label_8")
-
-        self.horizontalLayout_8.addWidget(self.label_8)
-
-        self.amplitudeInput = QLineEdit(self.verticalLayoutWidget_2)
-        self.amplitudeInput.setObjectName(u"amplitudeInput")
-
-        self.horizontalLayout_8.addWidget(self.amplitudeInput)
-
-        self.radiomV = QRadioButton(self.verticalLayoutWidget_2)
-        self.buttonGroup = QButtonGroup(Widget)
-        self.buttonGroup.setObjectName(u"buttonGroup")
-        self.buttonGroup.addButton(self.radiomV)
-        self.radiomV.setObjectName(u"radiomV")
-        self.radiomV.setChecked(True)
-
-        self.horizontalLayout_8.addWidget(self.radiomV)
-
-        self.radioV = QRadioButton(self.verticalLayoutWidget_2)
-        self.buttonGroup.addButton(self.radioV)
-        self.radioV.setObjectName(u"radioV")
-
-        self.horizontalLayout_8.addWidget(self.radioV)
-
-
-        self.verticalLayout_2.addLayout(self.horizontalLayout_8)
-
-        self.line_10 = QFrame(self.verticalLayoutWidget_2)
-        self.line_10.setObjectName(u"line_10")
-        self.line_10.setFrameShape(QFrame.HLine)
-        self.line_10.setFrameShadow(QFrame.Sunken)
-
-        self.verticalLayout_2.addWidget(self.line_10)
-
-        self.horizontalLayout_9 = QHBoxLayout()
-        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.label_9 = QLabel(self.verticalLayoutWidget_2)
-        self.label_9.setObjectName(u"label_9")
-
-        self.horizontalLayout_9.addWidget(self.label_9)
-
-        self.offSetInput = QLineEdit(self.verticalLayoutWidget_2)
-        self.offSetInput.setObjectName(u"offSetInput")
-
-        self.horizontalLayout_9.addWidget(self.offSetInput)
-
-        self.offSetRadiomV = QRadioButton(self.verticalLayoutWidget_2)
-        self.buttonGroup_5 = QButtonGroup(Widget)
-        self.buttonGroup_5.setObjectName(u"buttonGroup_5")
-        self.buttonGroup_5.addButton(self.offSetRadiomV)
-        self.offSetRadiomV.setObjectName(u"offSetRadiomV")
-        self.offSetRadiomV.setChecked(True)
-
-        self.horizontalLayout_9.addWidget(self.offSetRadiomV)
-
-        self.offSetRadioV = QRadioButton(self.verticalLayoutWidget_2)
-        self.buttonGroup_5.addButton(self.offSetRadioV)
-        self.offSetRadioV.setObjectName(u"offSetRadioV")
-
-        self.horizontalLayout_9.addWidget(self.offSetRadioV)
-
-
-        self.verticalLayout_2.addLayout(self.horizontalLayout_9)
-
-        self.line_11 = QFrame(self.verticalLayoutWidget_2)
-        self.line_11.setObjectName(u"line_11")
-        self.line_11.setFrameShape(QFrame.HLine)
-        self.line_11.setFrameShadow(QFrame.Sunken)
-
-        self.verticalLayout_2.addWidget(self.line_11)
-
-        self.horizontalLayout_10 = QHBoxLayout()
-        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
-        self.label_10 = QLabel(self.verticalLayoutWidget_2)
-        self.label_10.setObjectName(u"label_10")
-
-        self.horizontalLayout_10.addWidget(self.label_10)
-
-        self.phaseInput = QLineEdit(self.verticalLayoutWidget_2)
-        self.phaseInput.setObjectName(u"phaseInput")
-
-        self.horizontalLayout_10.addWidget(self.phaseInput)
-
-
-        self.verticalLayout_2.addLayout(self.horizontalLayout_10)
-
-        self.line_12 = QFrame(self.verticalLayoutWidget_2)
-        self.line_12.setObjectName(u"line_12")
-        self.line_12.setFrameShape(QFrame.HLine)
-        self.line_12.setFrameShadow(QFrame.Sunken)
-
-        self.verticalLayout_2.addWidget(self.line_12)
-
-        self.generateSignalButton = QPushButton(self.verticalLayoutWidget_2)
-        self.generateSignalButton.setObjectName(u"generateSignalButton")
-        self.generateSignalButton.setStyleSheet(u"background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 181, 177, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"")
-
-        self.verticalLayout_2.addWidget(self.generateSignalButton)
-
-        self.tabWidget.addTab(self.Seno, "")
+        self.tabWidget.setStyleSheet(u"")
         self.Square = QWidget()
         self.Square.setObjectName(u"Square")
         self.label_5 = QLabel(self.Square)
         self.label_5.setObjectName(u"label_5")
-        self.label_5.setGeometry(QRect(0, 0, 729, 67))
+        self.label_5.setGeometry(QRect(0, 0, 831, 67))
         self.label_5.setMaximumSize(QSize(16777215, 16777215))
         self.label_5.setStyleSheet(u"background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 181, 177, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "border-radius: 20px;\n"
 "height: 50px;")
         self.verticalLayoutWidget = QWidget(self.Square)
         self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
-        self.verticalLayoutWidget.setGeometry(QRect(0, 80, 731, 471))
+        self.verticalLayoutWidget.setGeometry(QRect(0, 80, 831, 471))
         self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -390,10 +215,192 @@ class Ui_Widget(object):
         self.verticalLayout.addWidget(self.generateSignalButton_sq)
 
         self.tabWidget.addTab(self.Square, "")
+        self.Seno = QWidget()
+        self.Seno.setObjectName(u"Seno")
+        self.label_6 = QLabel(self.Seno)
+        self.label_6.setObjectName(u"label_6")
+        self.label_6.setGeometry(QRect(0, 0, 821, 67))
+        self.label_6.setMaximumSize(QSize(16777215, 16777215))
+        self.label_6.setStyleSheet(u"background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 181, 177, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"border-radius: 20px;\n"
+"height: 50px;")
+        self.verticalLayoutWidget_2 = QWidget(self.Seno)
+        self.verticalLayoutWidget_2.setObjectName(u"verticalLayoutWidget_2")
+        self.verticalLayoutWidget_2.setGeometry(QRect(0, 80, 821, 471))
+        self.verticalLayout_2 = QVBoxLayout(self.verticalLayoutWidget_2)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.line_7 = QFrame(self.verticalLayoutWidget_2)
+        self.line_7.setObjectName(u"line_7")
+        self.line_7.setFrameShape(QFrame.HLine)
+        self.line_7.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_2.addWidget(self.line_7)
+
+        self.line_8 = QFrame(self.verticalLayoutWidget_2)
+        self.line_8.setObjectName(u"line_8")
+        self.line_8.setFrameShape(QFrame.HLine)
+        self.line_8.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_2.addWidget(self.line_8)
+
+        self.horizontalLayout_7 = QHBoxLayout()
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.label_7 = QLabel(self.verticalLayoutWidget_2)
+        self.label_7.setObjectName(u"label_7")
+
+        self.horizontalLayout_7.addWidget(self.label_7)
+
+        self.frequencyInput = QLineEdit(self.verticalLayoutWidget_2)
+        self.frequencyInput.setObjectName(u"frequencyInput")
+
+        self.horizontalLayout_7.addWidget(self.frequencyInput)
+
+        self.radioHz = QRadioButton(self.verticalLayoutWidget_2)
+        self.buttonGroup_4 = QButtonGroup(Widget)
+        self.buttonGroup_4.setObjectName(u"buttonGroup_4")
+        self.buttonGroup_4.addButton(self.radioHz)
+        self.radioHz.setObjectName(u"radioHz")
+        self.radioHz.setChecked(True)
+
+        self.horizontalLayout_7.addWidget(self.radioHz)
+
+        self.radioKHz = QRadioButton(self.verticalLayoutWidget_2)
+        self.buttonGroup_4.addButton(self.radioKHz)
+        self.radioKHz.setObjectName(u"radioKHz")
+
+        self.horizontalLayout_7.addWidget(self.radioKHz)
+
+        self.radioMHz = QRadioButton(self.verticalLayoutWidget_2)
+        self.buttonGroup_4.addButton(self.radioMHz)
+        self.radioMHz.setObjectName(u"radioMHz")
+        self.radioMHz.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+
+        self.horizontalLayout_7.addWidget(self.radioMHz)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_7)
+
+        self.line_9 = QFrame(self.verticalLayoutWidget_2)
+        self.line_9.setObjectName(u"line_9")
+        self.line_9.setFrameShape(QFrame.HLine)
+        self.line_9.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_2.addWidget(self.line_9)
+
+        self.horizontalLayout_8 = QHBoxLayout()
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.label_8 = QLabel(self.verticalLayoutWidget_2)
+        self.label_8.setObjectName(u"label_8")
+
+        self.horizontalLayout_8.addWidget(self.label_8)
+
+        self.amplitudeInput = QLineEdit(self.verticalLayoutWidget_2)
+        self.amplitudeInput.setObjectName(u"amplitudeInput")
+
+        self.horizontalLayout_8.addWidget(self.amplitudeInput)
+
+        self.radiomV = QRadioButton(self.verticalLayoutWidget_2)
+        self.buttonGroup = QButtonGroup(Widget)
+        self.buttonGroup.setObjectName(u"buttonGroup")
+        self.buttonGroup.addButton(self.radiomV)
+        self.radiomV.setObjectName(u"radiomV")
+        self.radiomV.setChecked(True)
+
+        self.horizontalLayout_8.addWidget(self.radiomV)
+
+        self.radioV = QRadioButton(self.verticalLayoutWidget_2)
+        self.buttonGroup.addButton(self.radioV)
+        self.radioV.setObjectName(u"radioV")
+
+        self.horizontalLayout_8.addWidget(self.radioV)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_8)
+
+        self.line_10 = QFrame(self.verticalLayoutWidget_2)
+        self.line_10.setObjectName(u"line_10")
+        self.line_10.setFrameShape(QFrame.HLine)
+        self.line_10.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_2.addWidget(self.line_10)
+
+        self.horizontalLayout_9 = QHBoxLayout()
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.label_9 = QLabel(self.verticalLayoutWidget_2)
+        self.label_9.setObjectName(u"label_9")
+
+        self.horizontalLayout_9.addWidget(self.label_9)
+
+        self.offSetInput = QLineEdit(self.verticalLayoutWidget_2)
+        self.offSetInput.setObjectName(u"offSetInput")
+
+        self.horizontalLayout_9.addWidget(self.offSetInput)
+
+        self.offSetRadiomV = QRadioButton(self.verticalLayoutWidget_2)
+        self.buttonGroup_5 = QButtonGroup(Widget)
+        self.buttonGroup_5.setObjectName(u"buttonGroup_5")
+        self.buttonGroup_5.addButton(self.offSetRadiomV)
+        self.offSetRadiomV.setObjectName(u"offSetRadiomV")
+        self.offSetRadiomV.setChecked(True)
+
+        self.horizontalLayout_9.addWidget(self.offSetRadiomV)
+
+        self.offSetRadioV = QRadioButton(self.verticalLayoutWidget_2)
+        self.buttonGroup_5.addButton(self.offSetRadioV)
+        self.offSetRadioV.setObjectName(u"offSetRadioV")
+
+        self.horizontalLayout_9.addWidget(self.offSetRadioV)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_9)
+
+        self.line_11 = QFrame(self.verticalLayoutWidget_2)
+        self.line_11.setObjectName(u"line_11")
+        self.line_11.setFrameShape(QFrame.HLine)
+        self.line_11.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_2.addWidget(self.line_11)
+
+        self.horizontalLayout_10 = QHBoxLayout()
+        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
+        self.label_10 = QLabel(self.verticalLayoutWidget_2)
+        self.label_10.setObjectName(u"label_10")
+
+        self.horizontalLayout_10.addWidget(self.label_10)
+
+        self.phaseInput = QLineEdit(self.verticalLayoutWidget_2)
+        self.phaseInput.setObjectName(u"phaseInput")
+
+        self.horizontalLayout_10.addWidget(self.phaseInput)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_10)
+
+        self.line_12 = QFrame(self.verticalLayoutWidget_2)
+        self.line_12.setObjectName(u"line_12")
+        self.line_12.setFrameShape(QFrame.HLine)
+        self.line_12.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_2.addWidget(self.line_12)
+
+        self.generateSignalButton = QPushButton(self.verticalLayoutWidget_2)
+        self.generateSignalButton.setObjectName(u"generateSignalButton")
+        self.generateSignalButton.setStyleSheet(u"background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 181, 177, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"")
+
+        self.verticalLayout_2.addWidget(self.generateSignalButton)
+
+        self.tabWidget.addTab(self.Seno, "")
         self.SomaSenos = QWidget()
         self.SomaSenos.setObjectName(u"SomaSenos")
         self.formLayout = QFormLayout(self.SomaSenos)
         self.formLayout.setObjectName(u"formLayout")
+        self.inputSum = QLineEdit(self.SomaSenos)
+        self.inputSum.setObjectName(u"inputSum")
+
+        self.formLayout.setWidget(0, QFormLayout.SpanningRole, self.inputSum)
+
         self.generateSignalSum = QPushButton(self.SomaSenos)
         self.generateSignalSum.setObjectName(u"generateSignalSum")
         self.generateSignalSum.setStyleSheet(u"background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 181, 177, 255), stop:1 rgba(255, 255, 255, 255));\n"
@@ -401,24 +408,19 @@ class Ui_Widget(object):
 
         self.formLayout.setWidget(1, QFormLayout.FieldRole, self.generateSignalSum)
 
-        self.inputSum = QLineEdit(self.SomaSenos)
-        self.inputSum.setObjectName(u"inputSum")
-
-        self.formLayout.setWidget(0, QFormLayout.SpanningRole, self.inputSum)
-
         self.tabWidget.addTab(self.SomaSenos, "")
         self.Triangle = QWidget()
         self.Triangle.setObjectName(u"Triangle")
         self.label_51 = QLabel(self.Triangle)
         self.label_51.setObjectName(u"label_51")
-        self.label_51.setGeometry(QRect(0, 0, 729, 67))
+        self.label_51.setGeometry(QRect(0, 0, 831, 67))
         self.label_51.setMaximumSize(QSize(16777215, 16777215))
         self.label_51.setStyleSheet(u"background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 181, 177, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "border-radius: 20px;\n"
 "height: 50px;")
         self.verticalLayoutWidget_9 = QWidget(self.Triangle)
         self.verticalLayoutWidget_9.setObjectName(u"verticalLayoutWidget_9")
-        self.verticalLayoutWidget_9.setGeometry(QRect(0, 80, 731, 471))
+        self.verticalLayoutWidget_9.setGeometry(QRect(0, 80, 831, 471))
         self.verticalLayout_11 = QVBoxLayout(self.verticalLayoutWidget_9)
         self.verticalLayout_11.setObjectName(u"verticalLayout_11")
         self.verticalLayout_11.setContentsMargins(0, 0, 0, 0)
@@ -588,14 +590,14 @@ class Ui_Widget(object):
         self.Sawtooth.setObjectName(u"Sawtooth")
         self.label_21 = QLabel(self.Sawtooth)
         self.label_21.setObjectName(u"label_21")
-        self.label_21.setGeometry(QRect(0, 0, 729, 67))
+        self.label_21.setGeometry(QRect(0, 0, 831, 67))
         self.label_21.setMaximumSize(QSize(16777215, 16777215))
         self.label_21.setStyleSheet(u"background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 181, 177, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "border-radius: 20px;\n"
 "height: 50px;")
         self.verticalLayoutWidget_5 = QWidget(self.Sawtooth)
         self.verticalLayoutWidget_5.setObjectName(u"verticalLayoutWidget_5")
-        self.verticalLayoutWidget_5.setGeometry(QRect(0, 80, 731, 471))
+        self.verticalLayoutWidget_5.setGeometry(QRect(0, 80, 831, 471))
         self.verticalLayout_5 = QVBoxLayout(self.verticalLayoutWidget_5)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
@@ -757,12 +759,12 @@ class Ui_Widget(object):
 
         self.tabWidget.addTab(self.Sawtooth, "")
 
-        self.gridLayout.addWidget(self.tabWidget, 0, 1, 1, 1)
+        self.gridLayout.addWidget(self.tabWidget, 0, 0, 1, 1)
 
 
         self.retranslateUi(Widget)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(Widget)
@@ -770,6 +772,27 @@ class Ui_Widget(object):
 
     def retranslateUi(self, Widget):
         Widget.setWindowTitle(QCoreApplication.translate("Widget", u"Portable Signal Generator", None))
+        self.label_5.setText(QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\">Square</p></body></html>", None))
+        self.label.setText(QCoreApplication.translate("Widget", u"Frequency", None))
+#if QT_CONFIG(tooltip)
+        self.frequencyInput_sq.setToolTip("")
+#endif // QT_CONFIG(tooltip)
+        self.frequencyInput_sq.setText(QCoreApplication.translate("Widget", u"1000", None))
+        self.radioHz_sq.setText(QCoreApplication.translate("Widget", u"Hz", None))
+        self.radioKHz_sq.setText(QCoreApplication.translate("Widget", u"KHz", None))
+        self.radioMHz_sq.setText(QCoreApplication.translate("Widget", u"MHz", None))
+        self.label_2.setText(QCoreApplication.translate("Widget", u"Amplitude", None))
+        self.amplitudeInput_sq.setText(QCoreApplication.translate("Widget", u"15", None))
+        self.radiomV_sq.setText(QCoreApplication.translate("Widget", u"mV", None))
+        self.radioV_sq.setText(QCoreApplication.translate("Widget", u"V", None))
+        self.label_4.setText(QCoreApplication.translate("Widget", u"Offset", None))
+        self.offSetInput_sq.setText(QCoreApplication.translate("Widget", u"0", None))
+        self.offSetRadiomV_sq.setText(QCoreApplication.translate("Widget", u"mV", None))
+        self.offSetRadioV_sq.setText(QCoreApplication.translate("Widget", u"V", None))
+        self.label_3.setText(QCoreApplication.translate("Widget", u"Duty Cycle (%)", None))
+        self.dutyInput_sq.setText(QCoreApplication.translate("Widget", u"48.7", None))
+        self.generateSignalButton_sq.setText(QCoreApplication.translate("Widget", u"Generate Signal", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.Square), QCoreApplication.translate("Widget", u"Square", None))
         self.label_6.setText(QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\">Sine</p></body></html>", None))
         self.label_7.setText(QCoreApplication.translate("Widget", u"Frequency", None))
 #if QT_CONFIG(tooltip)
@@ -791,29 +814,8 @@ class Ui_Widget(object):
         self.phaseInput.setText(QCoreApplication.translate("Widget", u"0", None))
         self.generateSignalButton.setText(QCoreApplication.translate("Widget", u"Generate Signal", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Seno), QCoreApplication.translate("Widget", u"Sine", None))
-        self.label_5.setText(QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\">Square</p></body></html>", None))
-        self.label.setText(QCoreApplication.translate("Widget", u"Frequency", None))
-#if QT_CONFIG(tooltip)
-        self.frequencyInput_sq.setToolTip("")
-#endif // QT_CONFIG(tooltip)
-        self.frequencyInput_sq.setText(QCoreApplication.translate("Widget", u"1000", None))
-        self.radioHz_sq.setText(QCoreApplication.translate("Widget", u"Hz", None))
-        self.radioKHz_sq.setText(QCoreApplication.translate("Widget", u"KHz", None))
-        self.radioMHz_sq.setText(QCoreApplication.translate("Widget", u"MHz", None))
-        self.label_2.setText(QCoreApplication.translate("Widget", u"Amplitude", None))
-        self.amplitudeInput_sq.setText(QCoreApplication.translate("Widget", u"15", None))
-        self.radiomV_sq.setText(QCoreApplication.translate("Widget", u"mV", None))
-        self.radioV_sq.setText(QCoreApplication.translate("Widget", u"V", None))
-        self.label_4.setText(QCoreApplication.translate("Widget", u"Offset", None))
-        self.offSetInput_sq.setText(QCoreApplication.translate("Widget", u"0", None))
-        self.offSetRadiomV_sq.setText(QCoreApplication.translate("Widget", u"mV", None))
-        self.offSetRadioV_sq.setText(QCoreApplication.translate("Widget", u"V", None))
-        self.label_3.setText(QCoreApplication.translate("Widget", u"Duty Cycle (%)", None))
-        self.dutyInput_sq.setText(QCoreApplication.translate("Widget", u"0", None))
-        self.generateSignalButton_sq.setText(QCoreApplication.translate("Widget", u"Generate Signal", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.Square), QCoreApplication.translate("Widget", u"Square", None))
-        self.generateSignalSum.setText(QCoreApplication.translate("Widget", u"Generate Signal", None))
         self.inputSum.setText(QCoreApplication.translate("Widget", u"2cos(1000t + 0) + 3sin(2000t + 0) + 4cos(3000t + 0) + 5sin(4000t + 0)", None))
+        self.generateSignalSum.setText(QCoreApplication.translate("Widget", u"Generate Signal", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.SomaSenos), QCoreApplication.translate("Widget", u"Sum", None))
         self.label_51.setText(QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\">Triangle</p></body></html>", None))
         self.label_52.setText(QCoreApplication.translate("Widget", u"Frequency", None))
@@ -854,7 +856,7 @@ class Ui_Widget(object):
         self.offSetRadiomV_st.setText(QCoreApplication.translate("Widget", u"mV", None))
         self.offSetRadioV_st.setText(QCoreApplication.translate("Widget", u"V", None))
         self.label_25.setText(QCoreApplication.translate("Widget", u"Duty Cycle (%)", None))
-        self.dutyInput_st.setText(QCoreApplication.translate("Widget", u"0", None))
+        self.dutyInput_st.setText(QCoreApplication.translate("Widget", u"48.7", None))
         self.generateSignalButton_st.setText(QCoreApplication.translate("Widget", u"Generate Signal", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Sawtooth), QCoreApplication.translate("Widget", u"Sawtooth", None))
     # retranslateUi

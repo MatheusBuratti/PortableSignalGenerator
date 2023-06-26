@@ -113,6 +113,9 @@ class functionGenerator:
         Fmax = np.maximum(np.abs(np.min(F)), np.abs(np.max(F)))
         pontos = [round(elem)
                   for elem in 4095*(F+Fmax)/(2*Fmax)]
+        plt.ion()
+        plt.plot(pontos)
+        plt.show()
         return Function(Waveform.SINESUM, freq, 0, 1, 1, pontos, qtd_pontos)
 
     def generateSawWave(freq: float, dutyCycle: float):
@@ -121,6 +124,9 @@ class functionGenerator:
         slice = np.r_[0:int(dutyCycle*qtd_pontos)]
         pontos[slice] = np.poly1d([4095/(dutyCycle*qtd_pontos), 0])(slice)
 
+        plt.ion()
+        plt.plot(pontos)
+        plt.show()
         return Function(Waveform.SAWTOOTH, freq, 0, 1, dutyCycle, pontos, qtd_pontos)
 
     def generateSquareWave(freq: float, dutyCycle: float):
@@ -130,6 +136,9 @@ class functionGenerator:
         slice = np.r_[0:int(dutyCycle*qtd_pontos)]
         pontos[slice] = 4095
 
+        plt.ion()
+        plt.plot(pontos)
+        plt.show()
         return Function(Waveform.SQUARE, freq, 0, 1, dutyCycle, pontos, qtd_pontos)
 
     def generateTriangleWave(freq: float):
@@ -142,6 +151,9 @@ class functionGenerator:
         pontos[second_slice] = np.poly1d(
             [-4095*2/(qtd_pontos), 4095*2])(second_slice)
 
+        plt.ion()
+        plt.plot(pontos)
+        plt.show()
         return Function(Waveform.TRIANGLE, freq, 0, 1, 1, pontos, qtd_pontos)
 
     def generateSineWave(freq: float, phase: float, amplitude: float):
@@ -152,6 +164,9 @@ class functionGenerator:
         F = np.sin(2*math.pi*freq*t + phase)
         pontos = [round(elem)
                   for elem in 4095*(F+1)/2]
+        plt.ion()
+        plt.plot(pontos)
+        plt.show()
         return Function(Waveform.SINE, freq, phase, amplitude, 1, pontos, qtd_pontos)
 
 

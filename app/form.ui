@@ -19,16 +19,272 @@
   </property>
   <property name="styleSheet">
    <string notr="true">font: 700 12pt &quot;Alef&quot;;
+background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 181, 177, 255), stop:1 rgba(255, 255, 255, 255));
 border-color: rgb(0, 0, 0);
 color: rgb(0, 0, 0);
 background-color: rgb(255, 255, 255);</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="1">
+   <item row="0" column="0">
     <widget class="QTabWidget" name="tabWidget">
-     <property name="currentIndex">
-      <number>0</number>
+     <property name="styleSheet">
+      <string notr="true">
+</string>
      </property>
+     <property name="currentIndex">
+      <number>2</number>
+     </property>
+     <widget class="QWidget" name="Square">
+      <attribute name="title">
+       <string>Square</string>
+      </attribute>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>831</width>
+         <height>67</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 181, 177, 255), stop:1 rgba(255, 255, 255, 255));
+border-radius: 20px;
+height: 50px;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Square&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QWidget" name="verticalLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>80</y>
+         <width>831</width>
+         <height>471</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="Line" name="line_6">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Frequency</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="frequencyInput_sq">
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="text">
+             <string>1000</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radioHz_sq">
+            <property name="text">
+             <string>Hz</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+            <attribute name="buttonGroup">
+             <string notr="true">buttonGroup_6</string>
+            </attribute>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radioKHz_sq">
+            <property name="text">
+             <string>KHz</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string notr="true">buttonGroup_6</string>
+            </attribute>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radioMHz_sq">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>MHz</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string notr="true">buttonGroup_6</string>
+            </attribute>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Amplitude</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="amplitudeInput_sq">
+            <property name="text">
+             <string>15</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radiomV_sq">
+            <property name="text">
+             <string>mV</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+            <attribute name="buttonGroup">
+             <string notr="true">buttonGroup_8</string>
+            </attribute>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radioV_sq">
+            <property name="text">
+             <string>V</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string notr="true">buttonGroup_8</string>
+            </attribute>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>Offset</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="offSetInput_sq">
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="offSetRadiomV_sq">
+            <property name="text">
+             <string>mV</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+            <attribute name="buttonGroup">
+             <string notr="true">buttonGroup_7</string>
+            </attribute>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="offSetRadioV_sq">
+            <property name="text">
+             <string>V</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string notr="true">buttonGroup_7</string>
+            </attribute>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Duty Cycle (%)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="dutyInput_sq">
+            <property name="text">
+             <string>48.7</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_5">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="generateSignalButton_sq">
+          <property name="styleSheet">
+           <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 181, 177, 255), stop:1 rgba(255, 255, 255, 255));
+</string>
+          </property>
+          <property name="text">
+           <string>Generate Signal</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
      <widget class="QWidget" name="Seno">
       <attribute name="title">
        <string>Sine</string>
@@ -38,7 +294,7 @@ background-color: rgb(255, 255, 255);</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>729</width>
+         <width>821</width>
          <height>67</height>
         </rect>
        </property>
@@ -62,7 +318,7 @@ height: 50px;</string>
         <rect>
          <x>0</x>
          <y>80</y>
-         <width>731</width>
+         <width>821</width>
          <height>471</height>
         </rect>
        </property>
@@ -280,262 +536,18 @@ height: 50px;</string>
        </layout>
       </widget>
      </widget>
-     <widget class="QWidget" name="Square">
-      <attribute name="title">
-       <string>Square</string>
-      </attribute>
-      <widget class="QLabel" name="label_5">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>729</width>
-         <height>67</height>
-        </rect>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 181, 177, 255), stop:1 rgba(255, 255, 255, 255));
-border-radius: 20px;
-height: 50px;</string>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Square&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-      <widget class="QWidget" name="verticalLayoutWidget">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>80</y>
-         <width>731</width>
-         <height>471</height>
-        </rect>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout">
-        <item>
-         <widget class="Line" name="line_6">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="Line" name="line">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <item>
-           <widget class="QLabel" name="label">
-            <property name="text">
-             <string>Frequency</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="frequencyInput_sq">
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="text">
-             <string>1000</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="radioHz_sq">
-            <property name="text">
-             <string>Hz</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-            <attribute name="buttonGroup">
-             <string notr="true">buttonGroup_6</string>
-            </attribute>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="radioKHz_sq">
-            <property name="text">
-             <string>KHz</string>
-            </property>
-            <attribute name="buttonGroup">
-             <string notr="true">buttonGroup_6</string>
-            </attribute>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="radioMHz_sq">
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 255, 255);</string>
-            </property>
-            <property name="text">
-             <string>MHz</string>
-            </property>
-            <attribute name="buttonGroup">
-             <string notr="true">buttonGroup_6</string>
-            </attribute>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <widget class="Line" name="line_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout">
-          <item>
-           <widget class="QLabel" name="label_2">
-            <property name="text">
-             <string>Amplitude</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="amplitudeInput_sq">
-            <property name="text">
-             <string>15</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="radiomV_sq">
-            <property name="text">
-             <string>mV</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-            <attribute name="buttonGroup">
-             <string notr="true">buttonGroup_8</string>
-            </attribute>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="radioV_sq">
-            <property name="text">
-             <string>V</string>
-            </property>
-            <attribute name="buttonGroup">
-             <string notr="true">buttonGroup_8</string>
-            </attribute>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <widget class="Line" name="line_3">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_4">
-          <item>
-           <widget class="QLabel" name="label_4">
-            <property name="text">
-             <string>Offset</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="offSetInput_sq">
-            <property name="text">
-             <string>0</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="offSetRadiomV_sq">
-            <property name="text">
-             <string>mV</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-            <attribute name="buttonGroup">
-             <string notr="true">buttonGroup_7</string>
-            </attribute>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="offSetRadioV_sq">
-            <property name="text">
-             <string>V</string>
-            </property>
-            <attribute name="buttonGroup">
-             <string notr="true">buttonGroup_7</string>
-            </attribute>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <widget class="Line" name="line_4">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_5">
-          <item>
-           <widget class="QLabel" name="label_3">
-            <property name="text">
-             <string>Duty Cycle (%)</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="dutyInput_sq">
-            <property name="text">
-             <string>0</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <widget class="Line" name="line_5">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="generateSignalButton_sq">
-          <property name="styleSheet">
-           <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 181, 177, 255), stop:1 rgba(255, 255, 255, 255));
-</string>
-          </property>
-          <property name="text">
-           <string>Generate Signal</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </widget>
      <widget class="QWidget" name="SomaSenos">
       <attribute name="title">
        <string>Sum</string>
       </attribute>
       <layout class="QFormLayout" name="formLayout">
+       <item row="0" column="0" colspan="2">
+        <widget class="QLineEdit" name="inputSum">
+         <property name="text">
+          <string>2cos(1000t + 0) + 3sin(2000t + 0) + 4cos(3000t + 0) + 5sin(4000t + 0)</string>
+         </property>
+        </widget>
+       </item>
        <item row="1" column="1">
         <widget class="QPushButton" name="generateSignalSum">
          <property name="styleSheet">
@@ -544,13 +556,6 @@ height: 50px;</string>
          </property>
          <property name="text">
           <string>Generate Signal</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0" colspan="2">
-        <widget class="QLineEdit" name="inputSum">
-         <property name="text">
-          <string>2cos(1000t + 0) + 3sin(2000t + 0) + 4cos(3000t + 0) + 5sin(4000t + 0)</string>
          </property>
         </widget>
        </item>
@@ -565,7 +570,7 @@ height: 50px;</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>729</width>
+         <width>831</width>
          <height>67</height>
         </rect>
        </property>
@@ -589,7 +594,7 @@ height: 50px;</string>
         <rect>
          <x>0</x>
          <y>80</y>
-         <width>731</width>
+         <width>831</width>
          <height>471</height>
         </rect>
        </property>
@@ -816,7 +821,7 @@ height: 50px;</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>729</width>
+         <width>831</width>
          <height>67</height>
         </rect>
        </property>
@@ -840,7 +845,7 @@ height: 50px;</string>
         <rect>
          <x>0</x>
          <y>80</y>
-         <width>731</width>
+         <width>831</width>
          <height>471</height>
         </rect>
        </property>
@@ -1022,7 +1027,7 @@ height: 50px;</string>
           <item>
            <widget class="QLineEdit" name="dutyInput_st">
             <property name="text">
-             <string>0</string>
+             <string>48.7</string>
             </property>
            </widget>
           </item>
@@ -1056,16 +1061,16 @@ height: 50px;</string>
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="buttonGroup_2"/>
+  <buttongroup name="buttonGroup_10"/>
   <buttongroup name="buttonGroup_3"/>
+  <buttongroup name="buttonGroup_5"/>
+  <buttongroup name="buttonGroup_7"/>
+  <buttongroup name="buttonGroup_2"/>
+  <buttongroup name="buttonGroup_9"/>
   <buttongroup name="buttonGroup_4"/>
   <buttongroup name="buttonGroup"/>
-  <buttongroup name="buttonGroup_5"/>
-  <buttongroup name="buttonGroup_6"/>
-  <buttongroup name="buttonGroup_7"/>
-  <buttongroup name="buttonGroup_8"/>
-  <buttongroup name="buttonGroup_9"/>
-  <buttongroup name="buttonGroup_10"/>
   <buttongroup name="buttonGroup_11"/>
+  <buttongroup name="buttonGroup_6"/>
+  <buttongroup name="buttonGroup_8"/>
  </buttongroups>
 </ui>

@@ -56,7 +56,7 @@ class Widget(QWidget):
         return result        
 
     def getSquareDutyCycleData(self):
-        return float(self.ui.dutyInput_sq.text())
+        return float(self.ui.dutyInput_sq.text())/100
 
     def generateTriangle(self):
         frequency = self.getTriangleFrequencyData()
@@ -109,7 +109,7 @@ class Widget(QWidget):
         return result        
 
     def getSawtoothDutyCycleData(self):
-        return float(self.ui.dutyInput_st.text())
+        return float(self.ui.dutyInput_st.text())/100
 
     def generateSumWave(self):
         string = self.ui.inputSum.text()

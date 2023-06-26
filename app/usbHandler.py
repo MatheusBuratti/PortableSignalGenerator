@@ -23,10 +23,17 @@ class USBHandler:
     def send(self, data: Function):
         message = b'!Start!'
         message += int.to_bytes(data.arr, 4, 'little')
-        message += int.to_bytes(data.prescaler, 2, 'little')
+        message += int.to_bytes(data.prescaler-1, 2, 'little')
         message += int.to_bytes(data.qtd_pontos, 2, 'little')
         self.serial.write(message)
         message = b''
         for ponto in data.pontos:
             message += int.to_bytes(int(ponto), 2, 'little')
         self.serial.write(message)
+
+
+if __name__ == "__main__":
+    # Teste enviando uma senoide de 500Hz para o microcontrolador
+    usb = USBHandler()
+    func = functionGenerator.generateTriangleWave(500)
+    usb.send(func)

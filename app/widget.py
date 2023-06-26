@@ -8,25 +8,27 @@ import math
 from functionGenerator import Waveform, functionGenerator as fg
 from PySide6.QtWidgets import QApplication, QWidget
 from ui_form import Ui_Widget
-
+from usbHandler import USBHandler
 
 class Widget(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.ui = Ui_Widget()
         self.ui.setupUi(self)
-        self.ui.generateSignalButton.clicked.connect(self.outputData)
+        self.ui.generateSignalButton.clicked.connect(self.generateSine)
 
-    def outputData(self):
-        print()
-        self.printWaveform()
-        frequency = self.printFrequencyData()
-        amplitude = self.printAmplitudeData()
-        offSet = self.printOffSetData()
-        dutyCycle = self.printDutyCycleData()
-        fg.generateSineWave(frequency, 0, amplitude)
 
-    def printFrequencyData(self):
+    def generateSine(self):
+
+        frequency = self.getFrequencyData()
+        amplitude = self.getAmplitudeData()
+        offSet = self.getOffSetData()
+        phase =  self.getPhaseData()
+        usb = USBHandler()
+        usb.send(fg.generateSineWave(frequency,phase,amplitude))
+        
+
+    def getFrequencyData(self):
         text = self.ui.frequencyInput.text()
         number = float(text)
         result = 0
@@ -43,7 +45,7 @@ class Widget(QWidget):
             print("Frequency: " + str(number) + "Hz")
         return result
 
-    def printAmplitudeData(self):
+    def getAmplitudeData(self):
         text = self.ui.amplitudeInput.text()
         number = float(text)
         result = 0
@@ -56,11 +58,11 @@ class Widget(QWidget):
             print("Amplitude: " + str(number) + "V")
         return result
 
-    def printOffSetData(self):
+    def getOffSetData(self):
         text = self.ui.offSetInput.text()
         number = float(text)
 
-        if self.ui.radioomV.isChecked():
+        if self.ui.offSetRadiomV.isChecked():
             result = number/1000
             print("Offset: " + str(number) + "mV")
 
@@ -69,25 +71,8 @@ class Widget(QWidget):
             print("Offset: " + str(number) + "V")
         return result
 
-    def printDutyCycleData(self):
-        text = self.ui.dutyInput.text()
-        number = float(text)
-        print("Duty Cycle: " + str(number) + "%")
-        return number
-
-    def printWaveform(self):
-        if self.ui.radioPulse.isChecked():
-            waveform = Waveform.PULSE
-        elif self.ui.radioSaw.isChecked():
-            waveform = Waveform.SAW
-        elif self.ui.radioSine.isChecked():
-            waveform = Waveform.SINE
-        elif self.ui.radioSquare.isChecked():
-            waveform = Waveform.SQUARE
-        elif self.ui.radioTriangle.isChecked():
-            waveform = Waveform.TRIANGLE
-        print("Waveform: " + str(waveform))
-
+    def getPhaseData(self):
+        return float(self.ui.phaseInput.text())
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

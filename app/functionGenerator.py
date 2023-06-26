@@ -137,9 +137,10 @@ class functionGenerator:
         pontos = np.zeros(qtd_pontos, dtype=int)
         first_slice = np.r_[0:int(0.5*qtd_pontos)]
         second_slice = np.r_[int(0.5*qtd_pontos):qtd_pontos]
-        pontos[first_slice] = np.poly1d([4095/(qtd_pontos), 0])(first_slice)
+        pontos[first_slice] = np.poly1d(
+            [4095*2/(qtd_pontos), 0])(first_slice)
         pontos[second_slice] = np.poly1d(
-            [-4095/(qtd_pontos), 4095])(second_slice)
+            [-4095*2/(qtd_pontos), 4095*2])(second_slice)
 
         return Function(Waveform.TRIANGLE, freq, 0, 1, 1, pontos, qtd_pontos)
 

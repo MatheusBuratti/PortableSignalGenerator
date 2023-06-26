@@ -16,6 +16,10 @@ class Widget(QWidget):
         self.ui = Ui_Widget()
         self.ui.setupUi(self)
         self.ui.generateSignalButton.clicked.connect(self.generateSine)
+        self.ui.generateSignalButton_tr.clicked.connect(self.generateTriangle)
+        self.ui.generateSignalButton_st.clicked.connect(self.generateSawtooth)
+        self.ui.generateSignalSum.clicked.connect(self.generateSumWave)
+        self.ui.generateSignalButton_sq.clicked.connect(self.generateSquare)
 
 
     def generateSine(self):

@@ -10,6 +10,7 @@ from PySide6.QtWidgets import QApplication, QWidget
 from ui_form import Ui_Widget
 from usbHandler import USBHandler
 
+
 class Widget(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -21,22 +22,21 @@ class Widget(QWidget):
         self.ui.generateSignalSum.clicked.connect(self.generateSumWave)
         self.ui.generateSignalButton_sq.clicked.connect(self.generateSquare)
 
-
     def generateSine(self):
         frequency = self.getFrequencyData()
         amplitude = self.getAmplitudeData()
         offSet = self.getOffSetData()
-        phase =  self.getPhaseData()
+        phase = self.getPhaseData()
         usb = USBHandler()
-        usb.send(fg.generateSineWave(frequency,phase,amplitude))
+        usb.send(fg.generateSineWave(frequency, phase, amplitude))
 
     def generateSquare(self):
         frequency = self.getSquareFrequencyData()
         # amplitude = self.getAmplitudeData()
         # offSet = self.getOffSetData()
-        dutyCycle =  self.getSquareDutyCycleData()
+        dutyCycle = self.getSquareDutyCycleData()
         usb = USBHandler()
-        usb.send(fg.generateSquareWave(frequency,dutyCycle))
+        usb.send(fg.generateSquareWave(frequency, dutyCycle))
 
     def getSquareFrequencyData(self):
         text = self.ui.frequencyInput_sq.text()
@@ -53,7 +53,7 @@ class Widget(QWidget):
         else:
             result = number
             print("Frequency: " + str(number) + "Hz")
-        return result        
+        return result
 
     def getSquareDutyCycleData(self):
         return float(self.ui.dutyInput_sq.text())/100
@@ -81,15 +81,15 @@ class Widget(QWidget):
         else:
             result = number
             print("Frequency: " + str(number) + "Hz")
-        return result        
+        return result
 
     def generateSawtooth(self):
         frequency = self.getSawtoothFrequencyData()
-        dutyCycle =  self.getSawtoothDutyCycleData()
+        dutyCycle = self.getSawtoothDutyCycleData()
         # amplitude = self.getAmplitudeData()
         # offSet = self.getOffSetData()
         usb = USBHandler()
-        usb.send(fg.generateSawWave(frequency,dutyCycle))
+        usb.send(fg.generateSawWave(frequency, dutyCycle))
 
     def getSawtoothFrequencyData(self):
         text = self.ui.frequencyInput_st.text()
@@ -106,7 +106,7 @@ class Widget(QWidget):
         else:
             result = number
             print("Frequency: " + str(number) + "Hz")
-        return result        
+        return result
 
     def getSawtoothDutyCycleData(self):
         return float(self.ui.dutyInput_st.text())/100
@@ -114,7 +114,7 @@ class Widget(QWidget):
     def generateSumWave(self):
         string = self.ui.inputSum.text()
         usb = USBHandler()
-        usb.send(fg.generateSineSumWave(string))    
+        usb.send(fg.generateSineSumWave(string))
 
     def getFrequencyData(self):
         text = self.ui.frequencyInput.text()
@@ -161,6 +161,7 @@ class Widget(QWidget):
 
     def getPhaseData(self):
         return float(self.ui.phaseInput.text())
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

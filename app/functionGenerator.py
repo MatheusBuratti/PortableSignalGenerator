@@ -1,6 +1,7 @@
 import math
 import numpy as np
 from enum import Enum
+from matplotlib import pyplot as plt
 import re
 
 
@@ -109,8 +110,11 @@ class functionGenerator:
                      if function[1] == "cos"
                      else np.sin(function[2]*t + function[3])*function[0])
         F = np.sum(F, axis=0)
+        Fmax = np.maximum(np.abs(np.min(F)), np.abs(np.max(F)))
         pontos = [round(elem)
-                  for elem in 4095*(F+max(F))/(2*max(F))]
+                  for elem in 4095*(F+Fmax)/(2*Fmax)]
+        plt.plot(pontos)
+        plt.show()
         return Function(Waveform.SINESUM, freq, 0, 1, 1, pontos, qtd_pontos)
 
     def generateSawWave(freq: float, dutyCycle: float):

@@ -35,5 +35,6 @@ class USBHandler:
 if __name__ == "__main__":
     # Teste enviando uma senoide de 500Hz para o microcontrolador
     usb = USBHandler()
-    func = functionGenerator.generateTriangleWave(500)
+    func = functionGenerator.generateSineSumWave(
+        "2cos(1000t + 0) + 3sin(2000t + 0) + 4cos(3000t + 0) + 5sin(4000t + 0)")
     usb.send(func)
